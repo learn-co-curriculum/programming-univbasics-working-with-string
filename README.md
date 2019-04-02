@@ -21,7 +21,7 @@ But as we start writing more advanced programs, we want to say fun things like
 get the grasp of programming. As a result, we need to learn a bit more about
 the `String` type.
 
-It's just like when we learned to talk, we learned to ask questions, make
+It's just like when we learned to talk: We learned to ask questions, make
 statements, and communicate usefully, but at some point we were expected to
 give our responses in full, proper sentences. So, let's learn how to format
 Ruby's responses into meaningful `String`s.
