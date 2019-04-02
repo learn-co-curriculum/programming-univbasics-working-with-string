@@ -6,10 +6,10 @@
 * Recognize how to declare a `String` with single-quotes
 * State the difference between single- and double-quoted `String`s
 * Define _interpolation_
-* Explain How Different Quote Characters Allow Flexibility
+* Explain how different quote characters allow flexibility
 * Demonstrate escaping double-quotes in a `String`
 * Join `String`s using `+`
-* Identify why `TypeError` Happens When + `String` with Integer
+* Identify why `TypeError` happens when + `String` with `Integer`
 
 ## Introduction
 
@@ -17,26 +17,26 @@ Thus far in programming as conversation, we've really used numbers a lot. We
 use numbers because they reach across language, culture, time itself.
 
 But as we start writing more advanced programs, we want to say fun things like
-`"Byon the poodle barks 10 times"`. These, occasionally silly, programs help us
+`"Bryon the poodle barks 10 times"`. These, occasionally silly, programs help us
 get the grasp of programming. As a result, we need to learn a bit more about
 the `String` type.
 
 It's just like when we learned to talk, we learned to ask questions, make
-statements, and communicate usefully, but as some point we were expected to
+statements, and communicate usefully, but at some point we were expected to
 give our responses in full, proper sentences. So, let's learn how to format
 Ruby's responses into meaningful `String`s.
 
-## Recognize how to declare a `String` with double-quotes
+## Recognize How to Declare a `String` with Double-quotes
 
-We declare `String`s most often by putting them in double-quotes.
+We declare `String`s most often by putting them in double-quotes:
 
 ```ruby
 greeting = "Hello, folks"
 ```
 
-## Recognize how to declare a `String` with single-quotes
+## Recognize How to Declare a `String` with Single-quotes
 
-We can also declare `String`s most often by putting them in single-quotes.
+We can also declare `String`s by putting them in single-quotes:
 
 ```ruby
 greeting = 'Hello, folks'
@@ -50,14 +50,17 @@ using a special power of the `String`, _interpolating_ data.
 ### Define _interpolation_
 
 When you use the _interpolation operator_ you take data from the programming
-language and put it inside the `String`.  A double-quoted string allows `#{}`
-to be treated as a special sign to Ruby that it should "plug in" a value. A
-single-quoted string means, "Nope, don't _interpolate_."
+language, convert it to a `String`, and then place it inside the `String`.  A
+double-quoted `String` uses `#{}` to be treated as a special box to Ruby.
+Inside that "box," Ruby "plugs in" the value of the expression _after_
+converting it to a `String`.
+
+A single-quoted string means, "Nope, don't _interpolate_."
 
 ```ruby
 bark_count = 3
-dq = "Byron barks #{bark_count} times" #=> Byron barks 3 times
-sq = 'Byron barks #{bark_count} times' #=> Byron barks #{bark_count} times
+dq = "Byron barks #{bark_count} times" #=> "Byron barks 3 times"
+sq = 'Byron barks #{bark_count} times' #=> "Byron barks #{bark_count} times"
 ```
 
 ## Explain How Different Quote Characters Allow Flexibility
@@ -72,6 +75,11 @@ it might be a wise choice to use a single-quote here.
 ```ruby
 little_woman_esque = '"Wait," said Jo, "Do not go without me!"'
 ```
+
+Because the opening boundary of the `String` was `'`, Ruby will "close" the
+`String` at the next `'` &mdash; at the very end. Inside of the `'...'`, the
+`"` loses its meaning of "here's a `String`" and, instead, is just a plain
+letter.
 
 ## Demonstrate Escaping Double-quotes in a `String`
 
@@ -114,20 +122,24 @@ fact + age + tail #=> TypeError (no implicit conversion of Integer into String)
 ```
 
 Ruby is not sure whether you want to add like an `Integer` (stored in `tail`)
-or add like `String`s! If you need to do this, you should use _interpolation_:
+or add like `String`s! If you need to do this, you should use the `to_s` method
+on data.
 
 ```ruby
 fact = "Byron is "
 tail = " years old"
 age = 5
 
-fact + "#{age}" + tail #=> "Byron is 5 years old"
+fact + age.to_s + tail #=> "Byron is 5 years old"
+```
 
-> **Alternate Approach**: Most types feature a _method_ called `.to_s` which tuns
-> them into a String. You might remember the `.class` method we introduced when
-> we were talking about type, earlier. `"Byron is " + 5.to_s + " years old."`
-> works. We'll talk a lot more about methods later on, but you can explore this
-> in IRB.
+Most types feature a _method_ called `.to_s` ("to `String`") which turns them
+into a `String`.  Once a non-`String` is converted to a `String`, it can be
+joined with `+` to another `String`. You might still be unclear on what a
+"method" is. That's OK, we'll cover it in detail later.  You might remember the
+`.class` method we introduced when we were talking about type, earlier. For
+now, think of them as "commands" you can ask values to do in Object-Oriented
+languages, like Ruby.
 
 ## Conclusion
 
