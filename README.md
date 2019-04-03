@@ -17,7 +17,7 @@ Thus far in programming as conversation, we've really used numbers a lot. We
 use numbers because they reach across language, culture, time itself.
 
 But as we start writing more advanced programs, we want to say fun things like
-`"Bryon the poodle barks 10 times"`. These, occasionally silly, programs help us
+`"Byron the poodle barks 10 times"`. These, occasionally silly, programs help us
 get the grasp of programming. As a result, we need to learn a bit more about
 the `String` type.
 
